@@ -27,7 +27,7 @@ def launch():
                       windowConf.grid_size, windowConf.grid_size*6)
     back_btn.display(window)
     if gameConf.online:
-        gameConf.socket = connectServer()
+        gameConf.connect()
         Thread(target=syncData, args=(
             gameConf, store, window,), daemon=True).start()
     while gameConf.survive:
@@ -65,7 +65,7 @@ def launch():
                     gameConf.default()
                     windowConf.default()
                     styleConf.default()
-                    
+
                     break
         window.fill('white', ((windowConf.grid+3)*windowConf.grid_size, windowConf.grid_size +
                     15, (windowConf.grid+5)*windowConf.grid_size, windowConf.grid_size*2))

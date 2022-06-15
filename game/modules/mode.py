@@ -1,15 +1,7 @@
 from pygame import draw, display
 import random
-import socket
 from threading import Thread
 import json
-
-
-def connectServer():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(("127.0.0.1", 8080))
-    s.setblocking(True)
-    return s
 
 
 def syncData(gameConf, store, window):

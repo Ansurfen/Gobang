@@ -22,7 +22,11 @@ def HomePage(any):
 
 
 def OfflinePage(any):
-    files = os.listdir('./map/')
+    try:
+        files = os.listdir('./map/')
+    except:
+        os.mkdir('./map/')
+        files = os.listdir('./map/')
     offline_page = ttk.Frame(any.app)
     for f in files:
         ttk.Button(offline_page, text=f[:len(f)-4],

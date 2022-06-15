@@ -1,3 +1,6 @@
+import socket
+
+
 class styleConfig:
     def __init__(self):
         self.default()
@@ -45,6 +48,12 @@ class gameConfig:
                         cnt += 1
                     if cnt == self.goals:
                         self.count = 0.5
+
+    def connect(self):
+        if self.socket == None and self.ip != '' and self.port != -1:
+            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.socket.connect((self.ip, self.port))
+            self.socket.setblocking(True)
 
 
 styleConf = styleConfig()
